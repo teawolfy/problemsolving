@@ -1,6 +1,6 @@
 #using Sieve of Eratosthenes instead of brute force prime checking every number
 
-primes = [True] * 200000
+primes = [True] * 200000 #picked some number I expected to be larger than 10,001st prime
 primes[0] = None
 primes[1] = None
 count = 0
