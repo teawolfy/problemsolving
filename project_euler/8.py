@@ -11,7 +11,6 @@ while end < 1001:
         prod *= int(i)
     if prod > answer:
         answer = prod
-        final = num[beg:end]
     beg += 1
     end += 1
 print(answer)
