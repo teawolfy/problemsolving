@@ -29,15 +29,10 @@ flip_grid = list(map(list, zip(*num_grid))) #transposing the grid matrix for eas
 def xy_check(grid): #function to find the largest product of 4 numbers that are horizontally adjacent
     answer = 0
     for line in grid:
-        beg = 0
-        end = 4
-        while end < 20:
-            check = line[beg:end]
-            prod = int(check[0])*int(check[1])*int(check[2])*int(check[3])
+        for num in range(0, 17):
+            prod = int(line[num]) * int(line[num + 1]) * int(line[num + 2]) * int(line[num + 3])
             if prod > answer:
                 answer = prod
-            beg += 1
-            end += 1
     return answer
 
 horizontal_answer = xy_check(num_grid)
