@@ -10,7 +10,7 @@ print(jerry)
 def polyline(t, n, length, angle):
     for i in range(n):
         t.fd(length)
-        t.rt(angle)
+        t.lt(angle)
 
 def polygon(t, n, length):
     angle = 360.0 / n
@@ -34,14 +34,6 @@ def petal(t, r, angle):
         arc(t, r, angle)
         t.lt(180-angle)
 
-#for i in range(0,6):
-#    petal(jerry, 200, 360/6)
-#    jerry.lt(360/6)
-#arc(jerry, 200, 360/6)
-#jerry.lt(61)
-#circle(jerry,200)
-
-
 def bowtie(t, length):
     t.fd(length)
     t.rt(120)
@@ -53,37 +45,80 @@ def bowtie(t, length):
     t.lt(120)
     t.fd(length)
 
-jerry.lt(30)
-bowtie(jerry, 200)
-jerry.lt(90)
-bowtie(jerry, 200)
+def problem1():
+    for i in range(0,6):
+        petal(jerry, 200, 360/6)
+        jerry.lt(360/6)
+    arc(jerry, 200, 360/6)
+    jerry.lt(61)
+    circle(jerry,200)
 
-jerry.fd(200)
-jerry.lt(91)
-jerry.circle(200)
-jerry.lt(90)
-jerry.fd(100)
-jerry.circle(56)
-jerry.rt(2)
-jerry.fd(200)
-circle(jerry, 56)
-jerry.lt(180)
-jerry.up()
-jerry.fd(100)
-jerry.lt(31)
-jerry.fd(100)
-jerry.down()
-jerry.circle(56)
-jerry.up()
-jerry.lt(180)
-jerry.fd(200)
-jerry.down()
-jerry.circle(56)
+def problem2():
+    jerry.lt(30)
+    bowtie(jerry, 200)
+    jerry.lt(90)
+    bowtie(jerry, 200)
 
+    jerry.fd(200)
+    jerry.lt(91)
+    jerry.circle(200)
+    jerry.lt(90)
+    jerry.fd(100)
+    jerry.circle(55)
+    jerry.rt(.5)
+    jerry.fd(100)
+    jerry.lt(28)
+    jerry.fd(100)
+    jerry.circle(57)
+    jerry.rt(178)
+    jerry.fd(200)
+    jerry.circle(55)
+    jerry.lt(180)
+    jerry.fd(100)
+    jerry.rt(90)
+    jerry.fd(100)
+    jerry.circle(55)
 
+def problem3(radius):
+    jerry.circle(radius/2., 180)
+    jerry.circle(radius, 180)
+    jerry.left(180)
+    jerry.circle(-radius/2., 180)
+    jerry.left(90)
+    jerry.up()
+    jerry.forward(radius*0.35)
+    jerry.right(90)
+    jerry.down()
+    jerry.circle(radius*0.15)
+    jerry.left(90)
+    jerry.up()
+    jerry.backward(radius*0.35)
+    jerry.down()
+    jerry.left(90)
+    jerry.circle(radius/2., 180)
+    jerry.circle(radius, 180)
+    jerry.left(180)
+    jerry.circle(-radius/2., 180)
+    jerry.left(90)
+    jerry.up()
+    jerry.forward(radius*0.35)
+    jerry.right(90)
+    jerry.down()
+    jerry.circle(radius*0.15)
+    jerry.left(90)
+    jerry.up()
+    jerry.backward(radius*0.35)
+    jerry.down()
+    jerry.left(90)
+    
+    
 
-
-
-
+problem1()
+jerry.reset()
+jerry.pensize(4)
+problem2()
+jerry.reset()
+jerry.pensize(4)
+problem3(200)
 
 turtle.mainloop()
