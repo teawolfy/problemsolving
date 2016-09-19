@@ -10,7 +10,7 @@ print(jerry)
 def polyline(t, n, length, angle):
     for i in range(n):
         t.fd(length)
-        t.lt(angle)
+        t.rt(angle)
 
 def polygon(t, n, length):
     angle = 360.0 / n
@@ -34,12 +34,53 @@ def petal(t, r, angle):
         arc(t, r, angle)
         t.lt(180-angle)
 
-for i in range(0,6):
-    petal(jerry, 200, 360/6)
-    jerry.lt(360/6)
-arc(jerry, 200, 360/6)
-jerry.lt(61)
-circle(jerry,200)
+#for i in range(0,6):
+#    petal(jerry, 200, 360/6)
+#    jerry.lt(360/6)
+#arc(jerry, 200, 360/6)
+#jerry.lt(61)
+#circle(jerry,200)
+
+
+def bowtie(t, length):
+    t.fd(length)
+    t.rt(120)
+    t.fd(length)
+    t.rt(120)
+    t.fd(length*2)
+    t.lt(120)
+    t.fd(length)
+    t.lt(120)
+    t.fd(length)
+
+jerry.lt(30)
+bowtie(jerry, 200)
+jerry.lt(90)
+bowtie(jerry, 200)
+
+jerry.fd(200)
+jerry.lt(91)
+jerry.circle(200)
+jerry.lt(90)
+jerry.fd(100)
+jerry.circle(56)
+jerry.rt(2)
+jerry.fd(200)
+circle(jerry, 56)
+jerry.lt(180)
+jerry.up()
+jerry.fd(100)
+jerry.lt(31)
+jerry.fd(100)
+jerry.down()
+jerry.circle(56)
+jerry.up()
+jerry.lt(180)
+jerry.fd(200)
+jerry.down()
+jerry.circle(56)
+
+
 
 
 
