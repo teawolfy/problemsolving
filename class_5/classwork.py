@@ -110,15 +110,26 @@ def problem3(radius):
     jerry.backward(radius*0.35)
     jerry.down()
     jerry.left(90)
-    
-    
 
+def spiral(t):
+    length = 10
+    x = 0
+    for i in range(300):
+        t.fd(length)
+        y = 1 / (.01 + x * .0002)
+        t.lt(y)
+        x += y
+
+def myreset(t):
+    t.reset()
+    t.pensize(4)
+     
+spiral(jerry)
+myreset(jerry)
 problem1()
-jerry.reset()
-jerry.pensize(4)
+myreset(jerry)
 problem2()
-jerry.reset()
-jerry.pensize(4)
+myreset(jerry)
 problem3(200)
 
 turtle.mainloop()
