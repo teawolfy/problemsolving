@@ -24,19 +24,21 @@ while pile_size > 2:
     if turn == 0: 
         print('\n\n***Computer\'s Turn***')
         #the computer wll only take a random amount if it is dumb or if the pile size is a power of 2 minus 1
-        if ai_intel == 0 or pile_size == 3 or pile_size == 7 or pile_size == 15 or pile_size == 31 or pile_size == 63 or pile_size == 2:
+        if ai_intel == 0 or pile_size == 3 or pile_size == 7 or pile_size == 15 or pile_size == 31 or pile_size == 63:
             comp_take = randrange(1, pile_size // 2 + 1)
         #if the computer is smart and making the pile a power of 2 minus 1 is a legal move, it will do so
         else: 
             for power in two_power:
                 #checks which power of 2 minus 1 can be created with a legal move
-                if (pile_size // 2 >= pile_size - power) and (pile_size - power > 0): 
+                if (pile_size // 2 >= pile_size - power) and (pile_size - power > 0):
+                    #the computer will take however many it takes to make the pile the power of 2 minus one
                     comp_take = pile_size - power
                     break
         pile_size -= comp_take
         print('\nThe computer takes %d marble(s) from the pile. The pile now has %d marble(s)' %(comp_take, pile_size))
         #once the computer's turn is done, it changes the turn variable
         turn = 1
+    #player's turn
     else:
         #preventing the human from having a turn if the pile is size 2, because the game is decided
         if pile_size == 2:
@@ -48,8 +50,10 @@ while pile_size > 2:
             hum_take = int(input('Please input an integer between 1 and %d: ' %(pile_size // 2)))
         pile_size -= hum_take
         print('\nYou take %d marble(s) from the pile. The pile now has %d marble(s)' %(hum_take, pile_size))
+        #changing the turn back to the computer
         turn = 0
 #uses the most recent turn value to determine the winner
+#whoever's turn it is when the pile is 2 wins the game by taking one marble
 if turn == 0:
     print('\n\nThe computer takes one marble and leaves you with the last one... YOU LOSE!')
 else:
