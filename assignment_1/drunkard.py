@@ -2,11 +2,13 @@ import random
 import turtle
 import math
 jerry = turtle.Turtle()
-jerry.shape('turtle')
+#jerry.shape('turtle')
+#jerry.turtlesize(.7,.7,.7)
 print(jerry)
 
 def drunkard(n):
-    """the drunkard function takes n, the number of moves the drunkard will take
+    """
+    the drunkard function takes n, the number of moves the drunkard will take
     1. create variables for the north/south and east/west directions
     2. create variables for the direction of the drunkard at the end of his journey
     3. for n moves, a random number between 0 and 4 is generated - each corresponds to a cardinal direction
@@ -14,8 +16,10 @@ def drunkard(n):
         b. the direction is printed for the User
         c. set the turtle's heading to that direction and move it forward
         d. stamp the turtle's shape so the user can see where it is going'
-    4. the final directions from the origin are translated"""
-    jerry.circle(10)
+    4. the final directions from the origin are translated
+    """
+    #draws a circle so the user can see the origin
+    jerry.circle(5)
     ns = 0
     ew = 0
     ns_direction = ''
@@ -49,10 +53,11 @@ def drunkard(n):
     else:
         ew_direction = 'West'
     print('The drunkard has moved a total distance of %s block(s) to the %s and %s block(s) to the %s' %(abs(ns), ns_direction, abs(ew), ew_direction))
+    #slowly rotate the turtle so the user can see where it ended up
     while True:
         jerry.lt(2)
 
-drunkard(20)
+drunkard(70)
 
 turtle.mainloop()
     
