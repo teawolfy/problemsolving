@@ -12,7 +12,6 @@ def binary_search(my_list, x):
     my_list.sort()
     beg = 0
     end = len(my_list)
-    index = 0
     while end - beg > 0:
         if x == my_list[(beg + end) // 2]:
             return (beg + end) // 2
