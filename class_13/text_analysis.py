@@ -9,7 +9,7 @@ def process_file(filename, skip_header):
     returns: map from each word to the number of times it appears.
     """
     hist = {}
-    fp = open(filename)
+    fp = open(filename, encoding = 'UTF8')
 
     if skip_header:
         skip_gutenberg_header(fp)
