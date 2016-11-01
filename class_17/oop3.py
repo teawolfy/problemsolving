@@ -107,7 +107,7 @@ class Song():
 
 def main():
     my_song = Song(title = 'Twinkle Twinkle Little Star', artist = 'Duncan Rule', lyrics = 'Twinkle, twinkle, little star,\nHow I wonder what you are.\nUp above the world so high,\nLike a diamond in the sky.')
-    print(str(my_song - 'Little'))
+    print(str(my_song - 'Star'))
 
 if __name__ == '__main__':
     main()
